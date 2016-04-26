@@ -1,0 +1,12 @@
+---
+- hosts: all
+
+  pre_tasks:
+
+    - name: Add hosts references
+      lineinfile: dest=/etc/hosts line="{{ item }}"
+      sudo: yes
+
+  roles:
+    - environment-core
+    - environment-clojure
